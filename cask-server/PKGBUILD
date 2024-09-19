@@ -1,5 +1,5 @@
 pkgname=cask-server
-pkgver=0.6.6#.r3.ga06979f
+pkgver=0.6.6.r3.ga06979f
 pkgrel=1
 pkgdesc='Public server and API to interface with Cask features'
 url='https://github.com/Nitrux/cask-server'
@@ -8,8 +8,8 @@ license=(BSD-2-Clause custom:CC0 LGPL)
 depends=(qt6-base)
 makedepends=(git extra-cmake-modules)
 groups=(maui)
-provides=(pkgname)
-conflicts=(pkgname)
+provides=($pkgname)
+conflicts=($pkgname)
 source=(git+$url.git)
 sha256sums=('SKIP')
 
@@ -26,7 +26,7 @@ build() {
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=/usr/lib
-  cmake --build build
+  cmake --build build -j4
 }
 
 package() {

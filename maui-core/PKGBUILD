@@ -1,5 +1,5 @@
 pkgname=maui-core
-pkgver=0.6.6#.r8.gc4b4e7c
+pkgver=0.6.6.r8.gc4b4e7c
 pkgrel=1
 pkgdesc='Core libraries to manage the DE to be shared between Maui Settings and Cask.'
 url='https://github.com/Nitrux/maui-core'
@@ -16,8 +16,8 @@ depends=(kcoreaddons
          sound-theme-freedesktop)
 makedepends=(git extra-cmake-modules)
 groups=(maui)
-provides=(pkgname)
-conflicts=(pkgname)
+provides=($pkgname)
+conflicts=($pkgname)
 source=(git+$url.git)
 sha256sums=('SKIP')
 
@@ -35,7 +35,7 @@ build() {
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_INSTALL_LIBDIR=/usr/lib
-  cmake --build build
+  cmake --build build -j4
 }
 
 package() {
