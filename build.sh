@@ -1,10 +1,5 @@
 packages = ('cask-server', maui-core, maui-shell)
 
-for package in packages:
-    cd $package
-    makepkg -f
-    cd ..
-
 sudo pacman -S --noconfirm bluedevil \
          fontconfig \
          karchive \
